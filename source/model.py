@@ -1,5 +1,5 @@
 from PIL import Image
-import torch
+import os
 import torch.nn as nn
 from torch.utils.data import Dataset
 import torchvision.transforms as transforms

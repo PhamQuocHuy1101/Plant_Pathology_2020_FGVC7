@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader,
+from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
 from tqdm.auto import tqdm
 from torch.optim.lr_scheduler import StepLR
@@ -11,7 +11,7 @@ from sklearn.model_selection import StratifiedKFold
 from model import *
 
 # make data set====================================================
-train_csv_path = './train.csv'
+train_csv_path = '../data/train.csv'
 train_info = pd.read_csv(train_csv_path)
 quantity = train_info.describe()
 class_weight = (quantity.loc['mean'].max() / quantity.loc['mean']).values
@@ -35,7 +35,7 @@ n_epoch = 20
 lr = 1e-2
 batch_size = 32
 n_fold = 5 # test size 0.2
-global_device = 'cuda' if torch.cuda.is_available() else 'cpu'
+global_device = 'cpu'#'cuda' if torch.cuda.is_available() else 'cpu'
 
 # evaluate ========================================================
 def get_accuracy(logit, y_truth):
